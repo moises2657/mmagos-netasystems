@@ -1,0 +1,2 @@
+use adminUsers
+db.users.save({password: 'oMMj7rJ5rs9yxGXtmL08vtfE59ucs+xqIB44Zzbn6wY=', firstName:'luis moises', lastName: 'Magos Jimenez', email: 'moises2658@gmail.com'})

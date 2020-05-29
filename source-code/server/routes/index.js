@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express = require("express");
+var AuthContoller_1 = require("../controllers/AuthContoller");
+var UserController_1 = require("../controllers/UserController");
+var Middleware = require('../core/middleware');
+var router = express.Router();
+var authController = new AuthContoller_1.AuthController();
+var userController = new UserController_1.UserController();
+router.post('/auth/verifyToken', Middleware, authController.VerifyToken);
+router.post('/auth', authController.Login);
+router.get('/user/getInfo', Middleware, userController.getInfo);
+module.exports = router;

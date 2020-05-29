@@ -1,0 +1,8 @@
+<div class="sidebar-container shadow">
+    <div class="row justify-content-center pt-5" *ngIf="usuario">
+        <div class="col-auto"><img width="150" src="/assets/img/profile.jpg"></div>
+        <div class="col-12 text-center pt-2"><h4>{{usuario.firstName}} {{usuario.lastName}}</h4></div>
+        <div class="col-12 text-center">{{usuario.email}}</div>
+    </div>
+    
+</div>

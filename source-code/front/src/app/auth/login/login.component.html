@@ -1,0 +1,38 @@
+
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center login-container">
+    <div class="col-12 col-md-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <form [formGroup]="formGroup" (ngSubmit)="login()">
+            <h3 class="pb-2" i18n="@@LoginHeader">Iniciar Sesión</h3>
+            <div class="form-group">
+              <label for="emailInput" i18n="@@LoginEmail">Correo electrónico</label>
+              <input [class.is-invalid]="!formGroup.get('usuario').valid && formGroup.get('usuario').value.length> 0" autocomplete="off" [class.is-valid]="formGroup.get('usuario').valid" formControlName="usuario" type="email" class="form-control" id="emailInput">
+              <div class="invalid-feedback" i18n="@@LoginInvalidEmail">
+                Escribe una dirección de correo válida
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="passwordInput" i18n="@@LoginPassword">Contraseña</label>
+              <input [class.is-valid]="formGroup.get('usuario').valid" autocomplete="off" formControlName="password" type="password" class="form-control" id="passwordInput">
+              <div class="invalid-feedback" i18n="@@LoginInvalidPassword">
+                Campo requerido
+              </div>
+            </div>
+            <div *ngIf="errorCode">
+              <p class="text-danger" *ngIf="errorCode == 1" i18n="@@LoginUnregisteredEmail">El correo no está registrado</p>
+              <p class="text-danger" *ngIf="errorCode == 2" i18n="@@LoginIncorrectPassword">Contraseña incorrecta</p>
+            </div>
+            
+            <button type="submit" [disabled]="!formGroup.valid" class="btn btn-primary" i18n="@@LoginSubmitButton">Continuar</button>
+            
+          </form>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
